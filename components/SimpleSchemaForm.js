@@ -1,12 +1,8 @@
 import SchemaForm from 'jsonschema-form-for-material-ui'
 import React from 'react'
 
-
-const styles = theme => ({
-  field: {},
-  formButtons: {},
-  root: {},
-});
+import { styles } from "../style/styles"
+import { withStyles } from '@material-ui/core/styles'
 
 const schema = {
   "title": "A registration form",
@@ -50,14 +46,12 @@ const initialFormData = {
   "age": 75,
 }
 
-const classes = {};
-
 class SimpleSchemaForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.onCancel = this.onCancel.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    this.onCancel      = this.onCancel.bind(this);
+    this.onSubmit      = this.onSubmit.bind(this);
     this.onFormChanged = this.onFormChanged.bind(this);
   }
 
@@ -74,6 +68,7 @@ class SimpleSchemaForm extends React.Component {
   }
 
   render() {
+    const { classes } = this.props;
     return (
     <SchemaForm
       classes={classes}
@@ -87,4 +82,4 @@ class SimpleSchemaForm extends React.Component {
   }
 }
 
-export default SimpleSchemaForm;
+export default withStyles(styles)(SimpleSchemaForm);

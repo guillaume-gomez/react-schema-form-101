@@ -9,8 +9,9 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        Hello {this.props.name}
-        <SimpleSchemaForm />
+        <main>
+          <SimpleSchemaForm />
+        </main>
         <Footer />
       </div>
     );
@@ -18,6 +19,6 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-  <App name="John" />,
+  <App />,
   document.getElementById('react-div')
 );
