@@ -1,5 +1,6 @@
 import SchemaForm from 'jsonschema-form-for-material-ui'
 import React from 'react'
+import Typography from '@material-ui/core/Typography'
 
 import { styles } from "../style/styles"
 import { withStyles } from '@material-ui/core/styles'
@@ -70,15 +71,20 @@ class SimpleSchemaForm extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-    <SchemaForm
-      classes={classes}
-      schema={schema}
-      uiSchema={uiSchema}
-      formData={initialFormData}
-      onCancel={this.onCancel}
-      onSubmit={this.onSubmit}
-      onChange={this.onFormChanged}
-    />);
+    <div>
+      <Typography variant="h4" color="inherit" noWrap>
+        Basic Form
+      </Typography>
+      <SchemaForm
+        classes={classes}
+        schema={schema}
+        uiSchema={uiSchema}
+        formData={initialFormData}
+        onCancel={this.onCancel}
+        onSubmit={this.onSubmit}
+        onChange={this.onFormChanged}
+      />
+    </div>);
   }
 }
 
