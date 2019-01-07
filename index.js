@@ -1,8 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import SimpleSchemaForm from "./components/SimpleSchemaForm";
+import React from "react"
+import ReactDOM from "react-dom"
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import SimpleSchemaForm from "./components/SimpleSchemaForm"
+import ComplexForm from "./components/ComplexForm"
 
 class App extends React.Component {
   render() {
@@ -11,6 +12,7 @@ class App extends React.Component {
         <Header />
         <main>
           <SimpleSchemaForm />
+          <ComplexForm />
         </main>
         <Footer />
       </div>

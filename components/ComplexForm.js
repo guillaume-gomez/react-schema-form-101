@@ -47,7 +47,7 @@ const initialFormData = {
   "age": 75,
 }
 
-class SimpleSchemaForm extends React.Component {
+class ComplexForm extends React.Component {
 
   constructor(props) {
     super(props);
@@ -74,7 +74,7 @@ class SimpleSchemaForm extends React.Component {
     return (
     <div>
       <Typography variant="h4" color="inherit" noWrap>
-        Basic Form
+        More Complex Form
       </Typography>
       <SchemaForm
         classes={classes}
@@ -89,4 +89,4 @@ class SimpleSchemaForm extends React.Component {
   }
 }
 
-export default withStyles(styles)(SimpleSchemaForm);
+export default withStyles(styles)(ComplexForm);
