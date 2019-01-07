@@ -5,5 +5,12 @@
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "@material-ui/core": "^3.8.1",
+    "@material-ui/icons": "^3.0.1",
+    "jsonschema-form-for-material-ui": "^1.2.9",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
   }
 }
