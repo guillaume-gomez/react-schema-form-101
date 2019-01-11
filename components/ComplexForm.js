@@ -9,42 +9,42 @@ const schema = {
   "title": "A registration form",
   "description": "A simple form example.",
   "type": "object",
-  "required": [
-    "firstName",
-    "lastName"
-  ],
   "properties": {
-    "firstName": {
+    "email": {
       "type": "string",
-      "title": "First name"
+      "title": "Email",
+      "pattern": /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     },
-    "lastName": {
+    "title": {
       "type": "string",
-      "title": "Last name"
+      "title": "title",
+      "maxLength": 40,
+      "minLength": 10
     },
-    "age": {
-      "type": "integer",
-      "title": "Age"
+    "myVariable": {
+      "type": "string",
+      "title": "my custom variable"
     }
   }
 }
 
 const uiSchema = {
-  "firstName": {
-    "ui:autofocus": true,
-    "ui:emptyValue": ""
-  },
-  "age": {
+  "email": {
     "ui:widget": "updown",
-    "ui:title": "Age of person",
+    "ui:title": "email of person",
     "ui:description": "This description will be in a Popover"
+  },
+  "title": {
+    "ui:title": "title of the episode",
+  },
+  "myVariable": {
+    "ui:title": "My custom variable",
+    "ui:help": "Don't forget to add 'youtube' in preffix"
   }
 }
 
 const initialFormData = {
-  "firstName": "Chuck",
-  "lastName": "Norris",
-  "age": 75,
+  email: "it's not an email"
 }
 
 class ComplexForm extends React.Component {
@@ -56,17 +56,25 @@ class ComplexForm extends React.Component {
     this.onFormChanged = this.onFormChanged.bind(this);
   }
 
-  onFormChanged() {
+  onFormChanged({formData}) {
+    console.log(formData)
     console.log("something has changed");
   }
 
-  onSubmit() {
+  onSubmit({formData}) {
     console.log("the form is submitted");
-    alert("submitted");
+    console.log(formData)
   }
 
-  onCancel() {
+  onCancel(event) {
+    console.log(event)
     console.log("the form is cancelled");
+  }
+
+  validate(formData, errors) {
+    console.log(formData)
+    console.log(errors)
+    return errors;
   }
 
   render() {
@@ -81,6 +89,7 @@ class ComplexForm extends React.Component {
         schema={schema}
         uiSchema={uiSchema}
         formData={initialFormData}
+        validate={this.validate}
         onCancel={this.onCancel}
         onSubmit={this.onSubmit}
         onChange={this.onFormChanged}
